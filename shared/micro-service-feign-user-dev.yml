@@ -1,0 +1,15 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: micro-service-feign-user
+eureka:
+  instance:
+    hostname: micro.service.feign.user
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+info:
+  application:
+    name: ${spring.application.name}

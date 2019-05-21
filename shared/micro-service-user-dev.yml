@@ -1,0 +1,15 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: micro-service-user
+eureka:
+  instance:
+    hostname: micro.service.user
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+info:
+  application:
+    name: ${spring.application.name}
