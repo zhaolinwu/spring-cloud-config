@@ -1,0 +1,17 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: eureka-server
+eureka:
+  instance:
+    hostname: eureka.server
+    prefer-ip-address: true
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+info:
+  application:
+    name: ${spring.application.name}
