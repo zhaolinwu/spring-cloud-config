@@ -1,11 +1,11 @@
 server:
-  port: 9001
+  port: 9100
 spring:
   application:
-    name: micro-service-feign-user
+    name: micro-service-user-feign
 eureka:
   instance:
-    hostname: micro.service.feign.user
+    hostname: micro.service.user.feign
     prefer-ip-address: true
   client:
     fetch-registry: true
