@@ -1,10 +1,16 @@
 server:
+  address: 127.0.0.1
   port: 9000
 spring:
   application:
     name: micro-service-user
   cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config
     bus:
+      enable: true
       trace:
         enabled: true
     stream:
@@ -12,17 +18,21 @@ spring:
         binder:
           brokers: http://10.254.199.52:9091,http://10.254.199.52:9092,http://10.254.199.52:9093
 management:
+  security: 
+    enabled: false
   endpoints:
     web:
       exposure:
-        include: bus-refresh
+        include: "*"
 eureka:
   instance:
     hostname: micro.service.user
     prefer-ip-address: true
   client:
-    fetch-registry: true
+    fetch-registry: false
     register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka:8761/eureka/
 info:
   application:
     message: micro-service-user
