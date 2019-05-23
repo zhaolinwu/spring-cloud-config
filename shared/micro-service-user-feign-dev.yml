@@ -13,3 +13,4 @@ eureka:
 info:
   application:
     name: ${spring.application.name}
+    port: ${server.port}
