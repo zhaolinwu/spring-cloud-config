@@ -21,7 +21,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: "bus-refresh"
 eureka:
   instance:
     hostname: micro.service.user
@@ -33,6 +33,6 @@ eureka:
       defaultZone: http://eureka:8761/eureka/
 info:
   application:
-    message: micro-service-user(new)
+    message: micro-service-user
     name: ${spring.application.name}
     port: ${server.port}
