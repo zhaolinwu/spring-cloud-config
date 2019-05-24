@@ -18,8 +18,6 @@ spring:
         binder:
           brokers: http://10.254.199.52:9091,http://10.254.199.52:9092,http://10.254.199.52:9093
 management:
-  security: 
-    enabled: false
   endpoints:
     web:
       exposure:
