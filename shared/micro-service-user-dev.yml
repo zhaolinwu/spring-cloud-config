@@ -1,5 +1,5 @@
 server:
-  address: 127.0.0.1
+  # address: 127.0.0.1
   port: 9000
 spring:
   application:
@@ -32,6 +32,6 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 info:
   application:
-    message: micro-service-user
+    message: micro-service-user-new
     name: ${spring.application.name}
     port: ${server.port}
