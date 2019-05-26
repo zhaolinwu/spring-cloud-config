@@ -1,9 +1,9 @@
 server:
   # address: 127.0.0.1
-  port: 9001
+  port: 1100
 spring:
   application:
-    name: micro-service-user
+    name: zuul
   cloud:
     config:
       discovery:
@@ -23,13 +23,22 @@ management:
         include: "*"
 eureka:
   instance:
-    hostname: micro.service.user
+    hostname: ${spring.application.name}
     prefer-ip-address: true
   client:
     fetch-registry: false
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
+zuul: 
+  ignoredServices: '*' # 忽略所有未配置的service
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+  routes:
+    micro-service-user: #自定义名称
+      path: /micro/user/**
+      serviceId: micro-service-user # /user/开头的路径转发至micro-service-user微服务
 info:
   application:
     name: ${spring.application.name}

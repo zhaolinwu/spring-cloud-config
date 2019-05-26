@@ -1,16 +1,35 @@
 server:
-  address: 127.0.0.1
+  # address: 127.0.0.1
   port: 9100
 spring:
   application:
-    name: micro-service-user-feign
+    name: micro-service-user
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config
+    bus:
+      trace:
+        enabled: true
+    stream:
+      kafka:
+        binder:
+          brokers: http://192.168.74.210:9091,http://192.168.74.210:9092,http://192.168.74.210:9093
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 eureka:
   instance:
-    hostname: micro.service.user.feign
+    hostname: micro.service.user
     prefer-ip-address: true
   client:
-    fetch-registry: true
+    fetch-registry: false
     register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 info:
   application:
     name: ${spring.application.name}
