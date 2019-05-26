@@ -1,0 +1,36 @@
+server:
+  # address: 127.0.0.1
+  port: 9200
+spring:
+  application:
+    name: micro-service-user-ribbon
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config
+    bus:
+      trace:
+        enabled: true
+    stream:
+      kafka:
+        binder:
+          brokers: http://192.168.74.210:9091,http://192.168.74.210:9092,http://192.168.74.210:9093
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+eureka:
+  instance:
+    hostname: ${spring.application.name}
+    prefer-ip-address: true
+  client:
+    fetch-registry: false
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+info:
+  application:
+    name: ${spring.application.name}
+    port: ${server.port}
