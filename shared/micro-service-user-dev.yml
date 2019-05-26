@@ -32,6 +32,6 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 info:
   application:
-    message: micro-service-user-new
+    message: micro-service-user
     name: ${spring.application.name}
     port: ${server.port}
