@@ -10,18 +10,17 @@ spring:
         enabled: true
         service-id: config
     bus:
-      enable: true
       trace:
         enabled: true
     stream:
       kafka:
         binder:
-          brokers: http://10.254.199.52:9091,http://10.254.199.52:9092,http://10.254.199.52:9093
+          brokers: http://192.168.74.210:9091,http://192.168.74.210:9092,http://192.168.74.210:9093
 management:
   endpoints:
     web:
       exposure:
-        include: "bus-refresh"
+        include: "*"
 eureka:
   instance:
     hostname: micro.service.user
@@ -30,9 +29,9 @@ eureka:
     fetch-registry: false
     register-with-eureka: true
     service-url:
-      defaultZone: http://eureka:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 info:
   application:
-    message: micro-service-user(new)
+    message: micro-service-user
     name: ${spring.application.name}
     port: ${server.port}
