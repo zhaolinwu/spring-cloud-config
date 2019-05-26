@@ -39,6 +39,9 @@ zuul:
     micro-service-user: #自定义名称
       path: /micro/user/**
       serviceId: micro-service-user # /user/开头的路径转发至micro-service-user微服务
+ribbon:
+  eureka:
+    enabled: true
 info:
   application:
     name: ${spring.application.name}
