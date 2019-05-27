@@ -31,13 +31,14 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 zuul: 
-  ignoredServices: '*' # 忽略所有未配置的service
+  prefix: /api
+  ignored-services: '*' # 忽略所有未配置的service
   host:
     connect-timeout-millis: 20000
     socket-timeout-millis: 20000
   routes:
     micro-service-user: #自定义名称
-      path: /micro/user/**
+      path: /user/**
       serviceId: micro-service-user # /user/开头的路径转发至micro-service-user微服务
 ribbon:
   eureka:
