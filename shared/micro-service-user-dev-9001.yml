@@ -23,7 +23,7 @@ management:
         include: "*"
 eureka:
   instance:
-    hostname: micro.service.user
+    hostname: localhost
     prefer-ip-address: true
   client:
     fetch-registry: false
