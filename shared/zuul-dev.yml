@@ -39,7 +39,7 @@ zuul:
   routes:
     micro-service-user: #自定义名称
       path: /user/**
-      serviceId: micro-service-user # /user/开头的路径转发至micro-service-user微服务
+      serviceId: micro-service-user-ribbon # /user/开头的路径转发至micro-service-user微服务
 ribbon:
   eureka:
     enabled: true
